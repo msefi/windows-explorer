@@ -10,6 +10,7 @@ import type { FileNode } from '@windows-explorer/types';
 const activeFolderId = ref<string | null>(null);
 const activeFolderPath = ref<FileNode[]>([]);
 const searchQuery = ref("");
+const viewMode = ref<'grid' | 'list'>('grid');
 
 const selectFolder = (folder: FileNode, path: FileNode[]) => {
   activeFolderId.value = folder.id;
@@ -90,12 +91,32 @@ const handleSearchInput = (value: string) => {
             <h2 v-else>This PC</h2>
           </div>
           <div class="view-controls">
-            <UIButton variant="secondary" size="sm" :active="true" title="Grid view"><LayoutGrid :size="16" /></UIButton>
-            <UIButton variant="secondary" size="sm" title="List view"><List :size="16" /></UIButton>
+            <UIButton 
+              variant="secondary" 
+              size="sm" 
+              :active="viewMode === 'grid'" 
+              title="Grid view"
+              @click="viewMode = 'grid'"
+            >
+              <LayoutGrid :size="16" />
+            </UIButton>
+            <UIButton 
+              variant="secondary" 
+              size="sm" 
+              :active="viewMode === 'list'" 
+              title="List view"
+              @click="viewMode = 'list'"
+            >
+              <List :size="16" />
+            </UIButton>
           </div>
         </div>
         <div class="content-scroll">
-          <FolderContents :folderId="activeFolderId" :searchQuery="searchQuery" />
+          <FolderContents 
+            :folderId="activeFolderId" 
+            :searchQuery="searchQuery" 
+            :viewMode="viewMode"
+          />
         </div>
       </main>
     </div>

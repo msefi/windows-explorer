@@ -5,6 +5,8 @@ export interface FileNode {
   name: string;
   type: NodeType;
   parentId: string | null;
+  size?: number;
+  extension?: string;
 }
 
 export interface TreeFileNode extends FileNode {
