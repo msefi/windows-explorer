@@ -8,7 +8,7 @@ Aplikasi web yang mensimulasikan tampilan dan fungsionalitas **Windows Explorer*
 |---|---|
 | **Backend** | [Bun](https://bun.sh/) + [Elysia.js](https://elysiajs.com/) |
 | **Frontend** | [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/) + TypeScript |
-| **Database** | PostgreSQL (via Docker) + [Drizzle ORM](https://orm.drizzle.team/) |
+| **Database** | PostgreSQL ([Docker](https://www.docker.com/) opsional) + [Drizzle ORM](https://orm.drizzle.team/) |
 | **Package Manager** | [Bun](https://bun.sh/) (workspace monorepo) |
 
 ## 📁 Struktur Proyek
@@ -29,7 +29,7 @@ windows-explorer/
 Pastikan sudah terinstal:
 
 - [Bun](https://bun.sh/) >= 1.0
-- [Docker](https://www.docker.com/) & Docker Compose
+- [Docker](https://www.docker.com/) & Docker Compose (opsional, jika tidak memiliki PostgreSQL lokal)
 
 ## 🚀 Instalasi
 
@@ -62,11 +62,15 @@ DATABASE_URL="postgresql://devuser:devpassword@localhost:5432/explorer_db"
 
 ## ▶️ Menjalankan Proyek
 
-### 1. Jalankan Database (PostgreSQL via Docker)
+### 1. Jalankan Database (PostgreSQL)
+
+Jika menggunakan Docker:
 
 ```bash
 docker compose up -d
 ```
+
+Atau pastikan PostgreSQL lokal Anda sudah berjalan dan sesuai dengan konfigurasi di `.env`.
 
 Database akan berjalan di `localhost:5432`.
 
@@ -82,14 +86,20 @@ Server API akan berjalan di **http://localhost:3000**
 #### Perintah tambahan Backend:
 
 ```bash
-# Push schema database
+# Push schema database (alternatif cepat)
 bun run db:push
+
+# Generate file migrasi (berdasarkan perubahan skema)
+bun run db:generate
+
+# Jalankan migrasi ke database
+bun run db:migrate
 
 # Buka Drizzle Studio (database GUI)
 bun run db:studio
 
 # Seed database dengan data awal
-# POST http://localhost:3000/api/v1/seed
+bun run db:seed
 ```
 
 ### 3. Jalankan Frontend
