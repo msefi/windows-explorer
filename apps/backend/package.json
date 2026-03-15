@@ -5,10 +5,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
     "db:push": "bun --bun x drizzle-kit push",
-    "db:studio": "bun --bun x drizzle-kit studio",
-    "db:seed": "bun src/db/seed.ts",
-    "db:generate": "bun --bun x drizzle-kit generate",
-    "db:migrate": "bun --bun x drizzle-kit migrate"
+    "db:seed": "bun src/db/seed.ts"
   },
   "dependencies": {
     "@elysiajs/cors": "^1.4.1",

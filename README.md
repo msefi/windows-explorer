@@ -86,17 +86,8 @@ Server API akan berjalan di **http://localhost:3000**
 #### Perintah tambahan Backend:
 
 ```bash
-# Push schema database (alternatif cepat)
+# Push schema database
 bun run db:push
-
-# Generate file migrasi (berdasarkan perubahan skema)
-bun run db:generate
-
-# Jalankan migrasi ke database
-bun run db:migrate
-
-# Buka Drizzle Studio (database GUI)
-bun run db:studio
 
 # Seed database dengan data awal
 bun run db:seed
