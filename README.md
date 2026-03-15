@@ -32,7 +32,7 @@ Pastikan sudah terinstal:
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/username/windows-explorer.git
+git clone git@github.com:msefi/windows-explorer.git
 cd windows-explorer
 ```
 
