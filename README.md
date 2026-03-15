@@ -1,17 +1,17 @@
 # 🗂️ Windows Explorer Clone
 
-Aplikasi web yang mensimulasikan tampilan dan fungsionalitas **Windows Explorer** (File Explorer). Dibangun sebagai monorepo fullstack dengan backend REST API dan frontend berbasis Vue.js.
+A high-performance web application designed to simulate the look and feel of the **Windows File Explorer**. This project is architected as a fullstack monorepo, featuring a modern REST API backend and a reactive Vue.js frontend.
 
 ## 🧱 Tech Stack
 
-| Layer | Teknologi |
+| Layer | Technology |
 |---|---|
 | **Backend** | [Bun](https://bun.sh/) + [Elysia.js](https://elysiajs.com/) |
 | **Frontend** | [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/) + TypeScript |
-| **Database** | PostgreSQL ([Docker](https://www.docker.com/) opsional) + [Drizzle ORM](https://orm.drizzle.team/) |
+| **Database** | PostgreSQL ([Docker](https://www.docker.com/) optional) + [Drizzle ORM](https://orm.drizzle.team/) |
 | **Package Manager** | [Bun](https://bun.sh/) (workspace monorepo) |
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 windows-explorer/
@@ -24,90 +24,82 @@ windows-explorer/
 └── package.json
 ```
 
-## ⚙️ Prasyarat
+## ⚙️ Prerequisites
 
-Pastikan sudah terinstal:
+Ensure you have the following installed:
 
 - [Bun](https://bun.sh/) >= 1.0
-- [Docker](https://www.docker.com/) & Docker Compose (opsional, jika tidak memiliki PostgreSQL lokal)
+- [Docker](https://www.docker.com/) & Docker Compose (optional, if you don't have a local PostgreSQL instance)
 
-## 🚀 Instalasi
+## 🚀 Installation
 
-### 1. Clone repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/username/windows-explorer.git
 cd windows-explorer
 ```
 
-### 2. Install semua dependencies (monorepo)
+### 2. Install all dependencies (monorepo)
 
 ```bash
 bun install
 ```
 
-### 3. Setup variabel lingkungan Backend
+### 3. Setup Backend environment variables
 
-Buat file `.env` di dalam folder `apps/backend/`:
+Create a `.env` file inside the `apps/backend/` folder:
 
 ```bash
 cp apps/backend/.env.example apps/backend/.env
 ```
 
-Atau buat manual dengan isi berikut:
+Or manually create one with the following content:
 
 ```env
 DATABASE_URL="postgresql://devuser:devpassword@localhost:5432/explorer_db"
 ```
 
-## ▶️ Menjalankan Proyek
+## ▶️ Running the Project
 
-### 1. Jalankan Database (PostgreSQL)
+### 1. Run the Database (PostgreSQL)
 
-Jika menggunakan Docker:
+If using Docker:
 
 ```bash
 docker compose up -d
 ```
 
-Atau pastikan PostgreSQL lokal Anda sudah berjalan dan sesuai dengan konfigurasi di `.env`.
+Otherwise, ensure your local PostgreSQL is running and matches the configuration in `.env`.
 
-Database akan berjalan di `localhost:5432`.
+The database will be available at `localhost:5432`.
 
-### 2. Jalankan Backend
+### 2. Run the Backend
 
 ```bash
 cd apps/backend
 bun run dev
 ```
 
-Server API akan berjalan di **http://localhost:3000**
+The API server will run at **http://localhost:3000**
 
-#### Perintah tambahan Backend:
+#### Additional Backend Commands:
 
 ```bash
-# Push schema database
+# Push database schema
 bun run db:push
 
-# Seed database dengan data awal
+# Seed database with initial data
 bun run db:seed
 ```
 
-### 3. Jalankan Frontend
+### 3. Run the Frontend
 
-Buka terminal baru, lalu:
+Open a new terminal, then:
 
 ```bash
 cd apps/frontend
 bun run dev
 ```
 
-Aplikasi akan berjalan di **http://localhost:5173**
-
-## 🛑 Menghentikan Proyek
-
-Untuk menghentikan database Docker:
-
-```bash
-docker compose down
-```
+The application will be available at **http://localhost:5173**
