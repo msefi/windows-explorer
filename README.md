@@ -78,20 +78,17 @@ The database will be available at `localhost:5432`.
 
 ```bash
 cd apps/backend
-bun run dev
-```
 
-The API server will run at **http://localhost:3000**
-
-#### Additional Backend Commands:
-
-```bash
 # Push database schema
 bun run db:push
 
 # Seed database with initial data
 bun run db:seed
+
+bun run dev
 ```
+
+The API server will run at **http://localhost:3000**
 
 ### 3. Run the Frontend
 
