@@ -1,7 +1,3 @@
-# 🗂️ Windows Explorer Clone
-
-Aplikasi web yang mensimulasikan tampilan dan fungsionalitas **Windows Explorer** (File Explorer). Dibangun sebagai monorepo fullstack dengan backend REST API dan frontend berbasis Vue.js.
-
 ## 🧱 Tech Stack
 
 | Layer | Teknologi |
